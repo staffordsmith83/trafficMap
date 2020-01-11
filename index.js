@@ -71,12 +71,21 @@ var trafficLightStyle =  new ol.style.Style({
 //DEFINE MAP LAYERS
 
 
-//Background layer
+//OSM Background layer
 var OSM = new ol.layer.Tile({
   title: 'OpenStreetMap',
   type: 'base',    
   source: new ol.source.OSM()
     });
+
+//Monochrome Background layer
+var Stamen = new ol.layer.Tile({
+  title: 'Stamen Toner',
+  type: 'base',
+  source: new ol.source.Stamen({
+    layer: 'toner'
+  })
+});
 
 
 // Security Cameras WFS
@@ -122,7 +131,8 @@ var vectorLayer = new ol.layer.Vector({
 // Initiate the Map
 var map = new ol.Map({
   layers: [
-    OSM,
+  Stamen,
+  OSM,
 	trafficLights,
 	securityCameras,
 	vectorLayer

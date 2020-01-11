@@ -73,13 +73,17 @@ var trafficLightStyle =  new ol.style.Style({
 
 //Background layer
 var OSM = new ol.layer.Tile({
-      source: new ol.source.OSM()
+  title: 'OpenStreetMap',
+  type: 'base',    
+  source: new ol.source.OSM()
     });
 
 
 // Security Cameras WFS
 var securityCameras = new ol.layer.Vector({
-	source: new ol.source.Vector({
+  title: 'Security Cameras',
+  type: 'data',
+  source: new ol.source.Vector({
 		format: new ol.format.GeoJSON(),
 		url: "https://services.slip.wa.gov.au/public/services/SLIP_Public_Services/Infrastructure_and_Utilities_WFS/MapServer/WFSServer?service=wfs&version=2.0.0&request=GetFeature&typeNames=SLIP_Public_Services_Infrastructure_and_Utilities_WFS:Security_Cameras__COP-003_&srsname=EPSG:4326&outputFormat=GEOJSON&BBOX=-31.967855,115.837827,-31.929547,115.897565",
 
@@ -91,7 +95,9 @@ var securityCameras = new ol.layer.Vector({
 
 // Traffic Lights WFS
 var trafficLights = new ol.layer.Vector({
-	source: new ol.source.Vector({
+  title: 'Traffic Lights',
+  type: 'data',
+  source: new ol.source.Vector({
 		format: new ol.format.GeoJSON(),
 		url: "https://mrgis.mainroads.wa.gov.au/arcgis/services/OpenData/RoadAssets_DataPortal/MapServer/WFSServer?service=WFS&version=2.0.0&request=GetFeature&typeNames=OpenData_RoadAssets_DataPortal:Traffic_Signal_Sites&outputFormat=GEOJSON",
 
@@ -102,6 +108,8 @@ var trafficLights = new ol.layer.Vector({
 
 // Traffic Count WFS - USE THIS AS MY DATA LAYER INSTEAD OF THE COUNTRIES ONE...
 var vectorLayer = new ol.layer.Vector({
+    title: 'Traffic Count',
+    type: 'data', 
       source: new ol.source.Vector({
         format: new ol.format.GeoJSON(),
         url: "https://services.slip.wa.gov.au/public/services/SLIP_Public_Services/Transport_WFS/MapServer/WFSServer?service=wfs&version=2.0.0&request=GetFeature&typeNames=SLIP_Public_Services_Transport_WFS:CoP_Traffic_Count__COP-026_&srsname=EPSG:4326&outputFormat=GEOJSON&BBOX=-31.967855,115.837827,-31.929547,115.897565",
@@ -373,3 +381,11 @@ function hexToRgbA(hex,opacity) {
 }
 
 
+/** Add layer switcher panel
+ */
+
+var layerSwitcher = new ol.control.LayerSwitcher({
+  tipLabel: 'Légende', // Optional label for button
+  groupSelectStyle: 'children' // Can be 'children' [default], 'group' or 'none'
+});
+map.addControl(layerSwitcher);

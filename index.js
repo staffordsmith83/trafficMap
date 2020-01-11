@@ -395,7 +395,7 @@ function hexToRgbA(hex,opacity) {
  */
 
 var layerSwitcher = new ol.control.LayerSwitcher({
-  tipLabel: 'Légende', // Optional label for button
+  tipLabel: 'Legend', // Optional label for button
   groupSelectStyle: 'children' // Can be 'children' [default], 'group' or 'none'
 });
 map.addControl(layerSwitcher);

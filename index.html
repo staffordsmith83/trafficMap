@@ -8,8 +8,8 @@
 	<link rel="stylesheet" href="https://unpkg.com/ol-layerswitcher@3.4.0/src/ol-layerswitcher.css" />
 
     <title>Traffic Map</title>
-    <style> html, body {height: 100%; padding: 0; margin: 0; background-color:black}
-	#map { height: 95vh; width: 100vw;}
+    <style> html, body {height: 100%; padding: 0; margin: 0; background-color:beige}
+	#map { height: 85vh; width: 100vw;}
 
 	.geostats-legend div {
 	margin: 3px 10px 5px 10px
@@ -43,7 +43,7 @@
 	</style>
   </head>
   <body>
-    <select id="methodselector" class="form-control">
+    <select id="methodselector" class="form-control" style="font-size:120%">
 	<option value="method_EI" >Equal Interval</option>
 	<option value="method_Q" selected>Quantile</option>
 	<option value="method_SD" >Standard Deviation</option>
@@ -52,8 +52,8 @@
 	<option value="method_CJ">Class Jenks</option>
 	</select>
 
-	<input type="number" id="classcount" min="1" value="3" max="10">
-	<input type="button" id="drawitbtn"  value='draw themmatic'/>
+	<input type="number" id="classcount" min="1" value="3" max="10" style="font-size:120%">
+	<input type="button" id="drawitbtn"  value='RECLASSIFY' style="font-size:120%"/>
 
 <div id="map" class="map"></div>
 

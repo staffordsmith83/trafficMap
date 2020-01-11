@@ -1,4 +1,9 @@
+//jquery function to run classification when 'draw thematic' button is clicked
 $('#drawitbtn').click(drawIt);
+
+
+//runs classification with default settings 3s after page starts loading. This may be problematic for slow connections.
+setTimeout(drawIt, 3000);
 
 //some global vars here
 var classSeries;
@@ -117,7 +122,7 @@ var map = new ol.Map({
   target: 'map',
   view: new ol.View({
     center: ol.proj.transform([115.8605, -31.9540], 'EPSG:4326', 'EPSG:3857'),
-    zoom: 17
+    zoom: 15
   })
 });
 
@@ -175,16 +180,6 @@ locate.addEventListener('click', function() {
 map.addControl(new ol.control.Control({
   element: locate
 }));
-
-
-
-
-
-
-
-
-
-
 
 
 /**
@@ -376,3 +371,5 @@ function hexToRgbA(hex,opacity) {
   }
   throw new Error('Bad Hex');
 }
+
+

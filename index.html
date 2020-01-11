@@ -4,6 +4,7 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
     <title>Traffic Map</title>
     <style> html, body {height: 100%; padding: 0; margin: 0; background-color:black}
 	#map { height: 95vh; width: 100vw;}
@@ -49,19 +50,18 @@
 	<option value="method_CJ">Class Jenks</option>
 	</select>
 
-	<input type="number" id="classcount" min="1" value="5" max="10">
+	<input type="number" id="classcount" min="1" value="3" max="10">
 	<input type="button" id="drawitbtn"  value='draw themmatic'/>
 
 <div id="map" class="map"></div>
 
 <div id='legend'></div>
 
-
-
 	<script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.1.1/build/ol.js"></script>
-  <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.1.1/css/ol.css">
+  	<link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.1.1/css/ol.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.2.1/chroma.min.js"></script>
-	<script src="https://www.intermezzo-coop.eu/mapping/geostats/lib/geostats.js"></script>
+	<script src="https://www.intermezzo-coop.eu/mapping/geostats/lib/geostats.js"></script>	
 	<script src="./index.js"></script>
+
   </body>
 </html>

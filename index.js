@@ -159,7 +159,7 @@ const style = new ol.style.Style({
     color: 'rgba(0, 0, 255, 0.2)'
   }),
   image: new ol.style.Icon({
-    src: 'data/location-heading.svg',
+    src: 'images/location-heading.svg',
     imgSize: [27, 55],
     rotateWithView: true
   })

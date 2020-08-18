@@ -65,11 +65,8 @@ var trafficLightStyle =  new ol.style.Style({
 })
 });
 
-//our methods here
-
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //DEFINE MAP LAYERS
-
 
 //OSM Background layer
 var OSM = new ol.layer.Tile({
@@ -77,6 +74,7 @@ var OSM = new ol.layer.Tile({
   type: 'base',    
   source: new ol.source.OSM()
     });
+
 
 //Monochrome Background layer
 var Stamen = new ol.layer.Tile({
@@ -127,7 +125,7 @@ var vectorLayer = new ol.layer.Vector({
 	  style: defaultStyle,
 });
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Initiate the Map
 var map = new ol.Map({
   layers: [
@@ -144,7 +142,7 @@ var map = new ol.Map({
   })
 });
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // CODE FOR Geolocation overlay
 const GPSlayerSource = new ol.source.Vector();
 const GPSlayer = new ol.layer.Vector({
@@ -200,9 +198,11 @@ map.addControl(new ol.control.Control({
 }));
 
 
-/**
- * do the themmatic classification
- */
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Perform classification of the traffic flow data
+// Much of this code comes from http://freeopengis.blogspot.com/2016/12/integrating-ol3-with-geostatsjs-to.html
+// Uses Geostats library to perform classification of data
+
 function drawIt(){
 var trafficVals = new Array();
 vectorLayer.getSource().getFeatures().forEach(function(feat) {
@@ -214,17 +214,6 @@ vectorLayer.setStyle(setStyle);
 }
 
 
-/**
- * @data {Array} the array of numbers (these are the pop data for all countries)
- * @numclasses {Integer} get the number of classes
- * @method {String}  get the classification method
- *
- *
- * set geostats object
- * set the series
- * set the colors ramp
- *
- */
 function getAndSetClassesFromData(data, numclasses, method) {
   var serie = new geostats(data);
   var legenLabel = "";
@@ -260,9 +249,8 @@ classColors = colors_x;
 
 
 
-/**
- * function to verify the style for the feature
- */
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Set styles based on classification performed
 function setStyle(feat,res) {
   var currVal = parseFloat(feat.get("AVG_Weekday_Traffic"));
   var bounds = classSeries.bounds;

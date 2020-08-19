@@ -1,4 +1,5 @@
 ﻿# trafficMap
+ See working preview at https://staffordsmith83.github.io/trafficMap/
 
 This webmap project was built as a pro bono job for a client who wanted to know traffic flow information, traffic lights locations, and the location of security cameras in the City of Perth. These layers are pulled from MainRoads and SLIP servers as MWS services.
 
